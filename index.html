@@ -1,0 +1,98 @@
+            <div class="service-card reveal" style="transition-delay:0.1s">
+                <div class="service-icon">⚡</div>
+                <div class="service-title">Startup Strategy</div>
+                <div class="service-desc">Bridging the gap between code and commerce. I help you build products that investors actually want to fund.</div>
+                <ul class="pill-list">
+                    <li>Product-Market Fit</li>
+                    <li>Fundraising Prep</li>
+                    <li>Go-to-Market Tech</li>
+                </ul>
+            </div>
+            <div class="service-card reveal" style="transition-delay:0.2s">
+                <div class="service-icon">🛡️</div>
+                <div class="service-title">Scale & Security</div>
+                <div class="service-desc">Hardening your infrastructure for the next 10x growth spurt while ensuring institutional-grade security.</div>
+                <ul class="pill-list">
+                    <li>Cloud Infrastructure</li>
+                    <li>Cybersecurity Audit</li>
+                    <li>Scale Bottlenecks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section reveal">
+        <div class="contact-card">
+            <span class="section-tag">Let's Connect</span>
+            <h2 class="section-title">Start a Conversation</h2>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Whether you're raising a Seed round or scaling to Series B, let's discuss your roadmap.</p>
+            
+            <form id="contactForm" class="form-grid">
+                <div class="input-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Goutham Sekhar" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="goutham@company.com" required>
+                </div>
+                <div class="input-group full-width">
+                    <label>Inquiry Type</label>
+                    <input type="text" placeholder="Advisory / Fractional CTO / VC Scouting">
+                </div>
+                <div class="input-group full-width">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Tell me about your project..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Proposal</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div>&copy; 2026 Goutham Sekhar. All rights reserved.</div>
+        <div class="social">
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter/X</a>
+            <a href="#">GitHub</a>
+        </div>
+    </footer>
+</main>
+
+<div id="toastMsg">Message Sent Successfully</div>
+
+<script>
+    // Reveal animations on scroll
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Form Handling & Toast
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const toast = document.getElementById('toastMsg');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+        this.reset();
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
+
